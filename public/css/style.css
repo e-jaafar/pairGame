@@ -1,8 +1,72 @@
+body{
+    background-color: beige;
+    padding: 0;
+    margin: 0;
+    /* display: flex; */
+    justify-content: center;
+    background : url(/public/img/fonddofus.jpeg);
+    background-size: cover;
+    color: beige;
+}
 #scoreboard {
     display: flex;
     align-items: center;
-    justify-content: center;
-    padding-top: 200px;
+    /* justify-content: center; */
     flex-direction: column;
+    border: white 1px solid;
+    width: 300px;
+    height: 200px;
+    
+}
+.inputPseudo{
+    display: flex;
+}
+.inputPseudo input{
+border: none;
+border-radius: 2px;
+}
+.inputPseudo button{
+border: none;
+border-radius: 2px;
+}
+.hautTableau{
+    display: flex;
+    gap: 20px;
+}
+.basTableau{
+    display: flex;
+    gap: 20px;
+}
+#timer{
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
 
+}
+
+/* ===================== CARTES ===================== */
+.section2{
+    margin-top: -200px;
+    margin-left: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 29px;
+    align-items: center;
+    display: none;
+}
+.firstrowcards{
+    gap: 20px;
+    display: flex;
+}
+.firstrowcards div{
+    width: 100px;
+    height: 250px;
+    background-color: red;
+    border: blue 2px solid;
+    border-radius: 3px;
+}
+.randomImage1{
+    background-image: url(/public/img/cra.png);
 }

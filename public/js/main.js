@@ -25,4 +25,50 @@
 // - Si vous avez complétement finis , n'hésitez pas à rajouter du style , et soyez fier de vous.
 
 
-let rename = document.getElementById("buttonRename")
+
+// //Start the timer
+// document.addEventListener('click', () => {
+    //   setInterval(myTimer, 1000);
+    // }, { once: true });
+    
+    
+    
+    
+    
+// TIMER
+let min = 0;
+let sec = 0;
+
+function myTimer() {
+  timer.innerHTML = min + " : " + sec + " ";
+  sec++;
+  if (sec >= 60) {
+    sec = 0;
+    min++;
+  }
+}
+
+let rename = document.getElementById("inputRename")
+let buttonExo = document.getElementsByClassName("buttonExo")[0]
+let listeJoueur = document.getElementsByClassName("listeJoueur")[0]
+let section2 = document.getElementsByClassName("section2")[0]
+
+
+
+console.log(section2);
+console.log(rename.value);
+
+buttonExo.addEventListener("click", () => {
+  let newPseudo = rename.value;
+  console.log(newPseudo);
+  if (newPseudo == "") {
+    alert("veuillez ne pas laisser le champs vide")
+  } else {
+    let textNode = document.createTextNode(newPseudo);
+    listeJoueur.textContent = ""
+    listeJoueur.appendChild(textNode);
+    rename.value = "";
+    section2.style.display = "flex"
+    setInterval(myTimer, 1000);
+  }
+}, { once: true });
