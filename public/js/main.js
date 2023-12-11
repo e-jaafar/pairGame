@@ -35,40 +35,150 @@
     
     
     
-// TIMER
-let min = 0;
-let sec = 0;
+// // TIMER
+// let min = 0;
+// let sec = 0;
 
-function myTimer() {
-  timer.innerHTML = min + " : " + sec + " ";
-  sec++;
-  if (sec >= 60) {
-    sec = 0;
-    min++;
+// function myTimer() {
+//   timer.innerHTML = min + " : " + sec + " ";
+//   sec++;
+//   if (sec >= 60) {
+//     sec = 0;
+//     min++;
+//   }
+// }
+
+// let rename = document.getElementById("inputRename")
+// let buttonExo = document.getElementsByClassName("buttonExo")[0]
+// let listeJoueur = document.getElementsByClassName("listeJoueur")[0]
+// let section2 = document.getElementsByClassName("section2")[0]
+// let card = document.querySelectorAll(".card")
+
+// console.log(card);
+
+// console.log(section2);
+// console.log(rename.value);
+
+// buttonExo.addEventListener("click", () => {
+//   let newPseudo = rename.value;
+//   console.log(newPseudo);
+//   if (newPseudo == "") {
+//     alert("veuillez ne pas laisser le champs vide")
+//   } else {
+//     let textNode = document.createTextNode(newPseudo);
+//     listeJoueur.textContent = ""
+//     listeJoueur.appendChild(textNode);
+//     rename.value = "";
+//     section2.style.display = "flex"
+//     setInterval(myTimer, 1000);
+//   }
+// });
+
+
+
+
+// card.forEach(card => {
+//     card.addEventListener('click', function handleClick(event) {
+//       console.log('card clicked', event);
+  
+//       card.setAttribute('style', 'background-color: yellow;');
+//     });
+//   });
+
+// let cards = ["./public/img/cra.png","./public/img/ecaflip.png","./public/img/iop.png","./public/img/iop.png","./public/img/ecaflip.png","./public/img/cra.png"]
+// let cra = "./public/img/cra.png"
+
+// console.log(cards);
+// function shuffle(array) {
+//   array.sort(() => Math.random() - 0.5);
+// }
+// shuffle(cards);
+// console.log(card);
+window.onload = function() {
+  let rename = document.getElementById("inputRename");
+  let buttonExo = document.getElementsByClassName("buttonExo")[0];
+  let listeJoueur = document.getElementsByClassName("listeJoueur")[0];
+  let section2 = document.getElementsByClassName("section2")[0];
+  let cardElements = document.querySelectorAll(".card");
+  let cards = ["./public/img/cra.png","./public/img/ecaflip.png","./public/img/iop.png","./public/img/iop.png","./public/img/ecaflip.png","./public/img/cra.png"];
+  let flippedCards = [];
+  let min = 0;
+  let sec = 0;
+  let timer;
+
+  // Shuffle function
+  function shuffle(array) {
+    array.sort(() => Math.random() - 0.5);
   }
+
+  // Timer function
+  function timerDisplay() {
+    timer.innerHTML = `${min} : ${sec} `;
+    sec++;
+    if (sec >= 60) {
+      sec = 0;
+      min++;
+    }
+  }
+
+  // LANCé LA PARTIE
+  buttonExo.addEventListener("click", () => {
+    let newPseudo = rename.value;
+    if (newPseudo == "") {
+      alert("veuillez ne pas laisser le champs vide")
+    } else {
+      let textNode = document.createTextNode(newPseudo);
+      listeJoueur.textContent = "";
+      listeJoueur.appendChild(textNode);
+      rename.value = "";
+      section2.style.display = "flex";
+      timer = setInterval(timerDisplay, 1000);
+    }
+  });
+
+  let matchedPairs = 0; 
+
+  // RETOURNER CARTE FONCTION
+  function flipCard(cardElement) {
+    if (cardElement.classList.contains("flipped")) {
+        return;
+    }
+
+    cardElement.classList.add("flipped");
+    let cardImage = cardElement.querySelector("img");
+    cardImage.src = cardElement.getAttribute("data-image");
+    flippedCards.push(cardElement);
+
+    if (flippedCards.length === 2) {
+      if (flippedCards[0].getAttribute("data-image") !== flippedCards[1].getAttribute("data-image")) {
+        setTimeout(function() {
+          flippedCards.forEach(card => {
+            card.classList.remove("flipped");
+            card.querySelector("img").src = "/public/img/verso.png";
+          });
+          flippedCards = [];
+        }, 1000);
+      } else {
+        matchedPairs++;
+        flippedCards = [];
+
+        if (matchedPairs === cards.length / 2) {
+          clearInterval(timer); 
+        }
+      }
+    }
+  }
+
+  shuffle(cards);
+  for (let i = 0; i < cardElements.length; i++) {
+    let cardImage = cardElements[i].querySelector("img");
+    cardImage.src = "/public/img/verso.png";
+    cardElements[i].setAttribute("data-image", cards[i]);
+  }
+
+  cardElements.forEach(card => {
+    card.addEventListener('click', function handleClick(event) {
+        flipCard(card);
+    });
+  });
 }
-
-let rename = document.getElementById("inputRename")
-let buttonExo = document.getElementsByClassName("buttonExo")[0]
-let listeJoueur = document.getElementsByClassName("listeJoueur")[0]
-let section2 = document.getElementsByClassName("section2")[0]
-
-
-
-console.log(section2);
-console.log(rename.value);
-
-buttonExo.addEventListener("click", () => {
-  let newPseudo = rename.value;
-  console.log(newPseudo);
-  if (newPseudo == "") {
-    alert("veuillez ne pas laisser le champs vide")
-  } else {
-    let textNode = document.createTextNode(newPseudo);
-    listeJoueur.textContent = ""
-    listeJoueur.appendChild(textNode);
-    rename.value = "";
-    section2.style.display = "flex"
-    setInterval(myTimer, 1000);
-  }
-}, { once: true });
