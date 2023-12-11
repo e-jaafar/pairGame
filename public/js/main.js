@@ -95,6 +95,7 @@
 // shuffle(cards);
 // console.log(card);
 window.onload = function() {
+  let timer = document.getElementById("timer");
   let rename = document.getElementById("inputRename");
   let buttonExo = document.getElementsByClassName("buttonExo")[0];
   let listeJoueur = document.getElementsByClassName("listeJoueur")[0];
@@ -104,7 +105,7 @@ window.onload = function() {
   let flippedCards = [];
   let min = 0;
   let sec = 0;
-  let timer;
+  let interval;
 
   // Shuffle function
   function shuffle(array) {
@@ -132,11 +133,11 @@ window.onload = function() {
       listeJoueur.appendChild(textNode);
       rename.value = "";
       section2.style.display = "flex";
-      timer = setInterval(timerDisplay, 1000);
+      interval = setInterval(timerDisplay, 1000);
     }
   });
 
-  let matchedPairs = 0; 
+  let matchedPairs = 0; // Add a counter for matched pairs
 
   // RETOURNER CARTE FONCTION
   function flipCard(cardElement) {
@@ -159,16 +160,19 @@ window.onload = function() {
           flippedCards = [];
         }, 1000);
       } else {
-        matchedPairs++;
+        matchedPairs++; // Increment the counter
         flippedCards = [];
 
+        // If all pairs are found
         if (matchedPairs === cards.length / 2) {
-          clearInterval(timer); 
+          clearInterval(interval); // Stop the timer
+          // End the game, show a message, etc.
         }
       }
     }
   }
 
+  // Initialize cards
   shuffle(cards);
   for (let i = 0; i < cardElements.length; i++) {
     let cardImage = cardElements[i].querySelector("img");
@@ -176,9 +180,11 @@ window.onload = function() {
     cardElements[i].setAttribute("data-image", cards[i]);
   }
 
+  // Add event listeners to cards
   cardElements.forEach(card => {
     card.addEventListener('click', function handleClick(event) {
         flipCard(card);
     });
   });
 }
+
