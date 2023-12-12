@@ -35,7 +35,7 @@ border-radius: 2px;
 }
 .basTableau{
     display: flex;
-    gap: 20px;
+    gap: 40px;
 }
 #timer{
     display: block;
@@ -44,6 +44,9 @@ border-radius: 2px;
     margin-inline-start: 0px;
     margin-inline-end: 0px;
 
+}
+.buttonExo{
+    background-color: beige;
 }
 
 /* ===================== CARTES ===================== */
@@ -54,23 +57,23 @@ border-radius: 2px;
     flex-direction: column;
     gap: 29px;
     align-items: center;
-    /* display: none; */
+    display: none;
 }
 .firstrowcards{
     gap: 20px;
     display: flex;
 }
 .firstrowcards div{
-    width: 130px;
+    width: 150px;
     height: 250px;
     /* background-color: red;
     border-radius: 3px; */
-    border: blue 2px solid;
-    border-radius: 10px;
+    border: blue 5px solid;
+    border-radius: 13px;
     /* background: #dd2727; */
     /* box-shadow:  7px 7px 14px #c52323,
-                 -7px -7px 14px #f52b2b;
- */
+    -7px -7px 14px #f52b2b;
+*/
 }
 .firstrowcards img{
     width: 100%;

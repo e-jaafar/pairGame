@@ -28,13 +28,13 @@
 
 // //Start the timer
 // document.addEventListener('click', () => {
-    //   setInterval(myTimer, 1000);
-    // }, { once: true });
-    
-    
-    
-    
-    
+//   setInterval(myTimer, 1000);
+// }, { once: true });
+
+
+
+
+
 // // TIMER
 // let min = 0;
 // let sec = 0;
@@ -80,7 +80,7 @@
 // card.forEach(card => {
 //     card.addEventListener('click', function handleClick(event) {
 //       console.log('card clicked', event);
-  
+
 //       card.setAttribute('style', 'background-color: yellow;');
 //     });
 //   });
@@ -94,19 +94,21 @@
 // }
 // shuffle(cards);
 // console.log(card);
-window.onload = function() {
+window.onload = function () {
   let timer = document.getElementById("timer");
   let rename = document.getElementById("inputRename");
   let buttonExo = document.getElementsByClassName("buttonExo")[0];
   let listeJoueur = document.getElementsByClassName("listeJoueur")[0];
   let section2 = document.getElementsByClassName("section2")[0];
   let cardElements = document.querySelectorAll(".card");
-  let cards = ["./public/img/cra.png","./public/img/ecaflip.png","./public/img/iop.png","./public/img/iop.png","./public/img/ecaflip.png","./public/img/cra.png"];
+  let cards = ["./public/img/cra.png", "./public/img/ecaflip.png", "./public/img/iop.png", "./public/img/iop.png", "./public/img/ecaflip.png", "./public/img/cra.png"];
   let flippedCards = [];
   let min = 0;
   let sec = 0;
   let interval;
-
+  const inputPseudo = document.getElementsByClassName("inputPseudo")[0]
+  const scoreboard = document.getElementById("scoreboard")
+  const body = document.querySelector("body")
   // Shuffle function
   function shuffle(array) {
     array.sort(() => Math.random() - 0.5);
@@ -132,17 +134,22 @@ window.onload = function() {
       listeJoueur.textContent = "";
       listeJoueur.appendChild(textNode);
       rename.value = "";
+      inputPseudo.style.display = "none"
       section2.style.display = "flex";
+      scoreboard.style.width= "200px";
+      body.style.background = "url(/public/img/fond2.jpeg)";
+      body.style.backgroundSize = "cover";
+
       interval = setInterval(timerDisplay, 1000);
     }
   });
 
-  let matchedPairs = 0; // Add a counter for matched pairs
+  let matchedPairs = 0;
 
   // RETOURNER CARTE FONCTION
   function flipCard(cardElement) {
     if (cardElement.classList.contains("flipped")) {
-        return;
+      return;
     }
 
     cardElement.classList.add("flipped");
@@ -152,7 +159,7 @@ window.onload = function() {
 
     if (flippedCards.length === 2) {
       if (flippedCards[0].getAttribute("data-image") !== flippedCards[1].getAttribute("data-image")) {
-        setTimeout(function() {
+        setTimeout(function () {
           flippedCards.forEach(card => {
             card.classList.remove("flipped");
             card.querySelector("img").src = "/public/img/verso.png";
@@ -160,19 +167,19 @@ window.onload = function() {
           flippedCards = [];
         }, 1000);
       } else {
-        matchedPairs++; // Increment the counter
+        matchedPairs++;
         flippedCards = [];
 
-        // If all pairs are found
+        // si toutes les pairs sont trouvés 
         if (matchedPairs === cards.length / 2) {
-          clearInterval(interval); // Stop the timer
-          // End the game, show a message, etc.
+          clearInterval(interval); // arret du timer
+          alert("fin du jeu")
         }
       }
     }
   }
 
-  // Initialize cards
+
   shuffle(cards);
   for (let i = 0; i < cardElements.length; i++) {
     let cardImage = cardElements[i].querySelector("img");
@@ -180,10 +187,10 @@ window.onload = function() {
     cardElements[i].setAttribute("data-image", cards[i]);
   }
 
-  // Add event listeners to cards
+
   cardElements.forEach(card => {
     card.addEventListener('click', function handleClick(event) {
-        flipCard(card);
+      flipCard(card);
     });
   });
 }
