@@ -94,6 +94,50 @@
 // }
 // shuffle(cards);
 // console.log(card);
+
+
+/* When the user clicks on the button,
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown menu if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+
+  const btnTheme = document.getElementsByClassName("btnTheme")[0]
+  const themeBtn1 = document.getElementsByClassName("themeBtn1")[0]
+  const themeBtn2 = document.getElementsByClassName("themeBtn2")[0]
+  const themeBtn3 = document.getElementsByClassName("themeBtn3")[0]
+  const body = document.querySelector("body")
+
+themeBtn2.addEventListener("click",()=>{
+  body.style.background = "url(/public/img/crafond.jpeg)";
+  body.style.backgroundSize = "cover";
+
+})
+themeBtn1.addEventListener("click",()=>{
+  body.style.background = "url(/public/img/fond2.jpeg)";
+  body.style.backgroundSize = "cover";
+
+})
+themeBtn3.addEventListener("click",()=>{
+  body.style.background = "url(/public/img/ecafond.jpeg)";
+  body.style.backgroundSize = "cover";
+
+})
+
 window.onload = function () {
   let timer = document.getElementById("timer");
   let rename = document.getElementById("inputRename");
@@ -108,8 +152,10 @@ window.onload = function () {
   let interval;
   const inputPseudo = document.getElementsByClassName("inputPseudo")[0]
   const scoreboard = document.getElementById("scoreboard")
-  const body = document.querySelector("body")
-  const btnTheme = document.getElementsByClassName("btnTheme")[0]
+  // const btnTheme = document.getElementsByClassName("btnTheme")[0]
+  // const themeBtn1 = document.getElementsByClassName("themeBtn1")[0]
+  // const themeBtn2 = document.getElementsByClassName("themeBtn2")[0]
+  // const themeBtn3 = document.getElementsByClassName("themeBtn3")[0]
   // FONCTION MELANGER
   function shuffle(array) {
     array.sort(() => Math.random() - 0.5);
