@@ -109,12 +109,13 @@ window.onload = function () {
   const inputPseudo = document.getElementsByClassName("inputPseudo")[0]
   const scoreboard = document.getElementById("scoreboard")
   const body = document.querySelector("body")
-  // Shuffle function
+  const btnTheme = document.getElementsByClassName("btnTheme")[0]
+  // FONCTION MELANGER
   function shuffle(array) {
     array.sort(() => Math.random() - 0.5);
   }
 
-  // Timer function
+  // FONCTION TIMER
   function timerDisplay() {
     timer.innerHTML = `${min} : ${sec} `;
     sec++;

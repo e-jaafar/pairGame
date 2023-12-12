@@ -1,90 +1,249 @@
-body{
-    background-color: beige;
-    padding: 0;
-    margin: 0;
-    /* display: flex; */
-    justify-content: center;
-    background : url(/public/img/fonddofus.jpeg);
-    background-size: cover;
-    color: beige;
+body {
+  background-color: beige;
+  padding: 0;
+  margin: 0;
+  /* display: flex; */
+  justify-content: center;
+  background: url(/public/img/fonddofus.jpeg);
+  background-size: cover;
+  color: beige;
+}
+button {
+}
+header {
+  display: flex;
+  background-color: blueviolet;
+  justify-content: center;
+  height: 20px;
+}
+.ddd {
+  margin-left: 30px;
+}
+.btnTheme {
+  button {
+    position: relative;
+    /* padding: 12px 35px; */
+    background: #fec195;
+    font-size: 17px;
+    font-weight: 500;
+    color: #181818;
+    border: 3px solid #fec195;
+    border-radius: 8px;
+    box-shadow: 0 0 0 #fec1958c;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .star-1 {
+    position: absolute;
+    top: 20%;
+    left: 20%;
+    width: 25px;
+    height: auto;
+    filter: drop-shadow(0 0 0 #fffdef);
+    z-index: -5;
+    transition: all 1s cubic-bezier(0.05, 0.83, 0.43, 0.96);
+  }
+
+  .star-2 {
+    position: absolute;
+    top: 45%;
+    left: 45%;
+    width: 15px;
+    height: auto;
+    filter: drop-shadow(0 0 0 #fffdef);
+    z-index: -5;
+    transition: all 1s cubic-bezier(0, 0.4, 0, 1.01);
+  }
+
+  .star-3 {
+    position: absolute;
+    top: 40%;
+    left: 40%;
+    width: 5px;
+    height: auto;
+    filter: drop-shadow(0 0 0 #fffdef);
+    z-index: -5;
+    transition: all 1s cubic-bezier(0, 0.4, 0, 1.01);
+  }
+
+  .star-4 {
+    position: absolute;
+    top: 20%;
+    left: 40%;
+    width: 8px;
+    height: auto;
+    filter: drop-shadow(0 0 0 #fffdef);
+    z-index: -5;
+    transition: all 0.8s cubic-bezier(0, 0.4, 0, 1.01);
+  }
+
+  .star-5 {
+    position: absolute;
+    top: 25%;
+    left: 45%;
+    width: 15px;
+    height: auto;
+    filter: drop-shadow(0 0 0 #fffdef);
+    z-index: -5;
+    transition: all 0.6s cubic-bezier(0, 0.4, 0, 1.01);
+  }
+
+  .star-6 {
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    width: 5px;
+    height: auto;
+    filter: drop-shadow(0 0 0 #fffdef);
+    z-index: -5;
+    transition: all 0.8s ease;
+  }
+
+  button:hover {
+    background: transparent;
+    color: #fec195;
+    box-shadow: 0 0 25px #fec1958c;
+  }
+
+  button:hover .star-1 {
+    position: absolute;
+    top: -80%;
+    left: -30%;
+    width: 25px;
+    height: auto;
+    filter: drop-shadow(0 0 10px #fffdef);
+    z-index: 2;
+  }
+
+  button:hover .star-2 {
+    position: absolute;
+    top: -25%;
+    left: 10%;
+    width: 15px;
+    height: auto;
+    filter: drop-shadow(0 0 10px #fffdef);
+    z-index: 2;
+  }
+
+  button:hover .star-3 {
+    position: absolute;
+    top: 55%;
+    left: 25%;
+    width: 5px;
+    height: auto;
+    filter: drop-shadow(0 0 10px #fffdef);
+    z-index: 2;
+  }
+
+  button:hover .star-4 {
+    position: absolute;
+    top: 30%;
+    left: 80%;
+    width: 8px;
+    height: auto;
+    filter: drop-shadow(0 0 10px #fffdef);
+    z-index: 2;
+  }
+
+  button:hover .star-5 {
+    position: absolute;
+    top: 25%;
+    left: 115%;
+    width: 15px;
+    height: auto;
+    filter: drop-shadow(0 0 10px #fffdef);
+    z-index: 2;
+  }
+
+  button:hover .star-6 {
+    position: absolute;
+    top: 5%;
+    left: 60%;
+    width: 5px;
+    height: auto;
+    filter: drop-shadow(0 0 10px #fffdef);
+    z-index: 2;
+  }
+
+  .fil0 {
+    fill: #fffdef;
+  }
 }
 #scoreboard {
-    display: flex;
-    align-items: center;
-    /* justify-content: center; */
-    flex-direction: column;
-    border: white 1px solid;
-    width: 300px;
-    height: 200px;
-    
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+  flex-direction: column;
+  border: white 1px solid;
+  width: 300px;
+  height: 200px;
 }
-.inputPseudo{
-    display: flex;
+.inputPseudo {
+  display: flex;
 }
-.inputPseudo input{
-border: none;
-border-radius: 2px;
+.inputPseudo input {
+  border: none;
+  border-radius: 2px;
 }
-.inputPseudo button{
-border: none;
-border-radius: 2px;
+.inputPseudo button {
+  border: none;
+  border-radius: 2px;
 }
-.hautTableau{
-    display: flex;
-    gap: 20px;
+.hautTableau {
+  display: flex;
+  gap: 20px;
 }
-.basTableau{
-    display: flex;
-    gap: 40px;
+.basTableau {
+  display: flex;
+  gap: 40px;
 }
-#timer{
-    display: block;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-
+#timer {
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
 }
-.buttonExo{
-    background-color: beige;
+.buttonExo {
+  background-color: beige;
 }
 
 /* ===================== CARTES ===================== */
-.section2{
-    margin-top: -200px;
-    margin-left: 150px;
-    display: flex;
-    flex-direction: column;
-    gap: 29px;
-    align-items: center;
-    display: none;
+.section2 {
+  margin-top: -200px;
+  margin-left: 150px;
+  display: flex;
+  flex-direction: column;
+  gap: 29px;
+  align-items: center;
+  display: none;
 }
-.firstrowcards{
-    gap: 20px;
-    display: flex;
+.firstrowcards {
+  gap: 20px;
+  display: flex;
 }
-.firstrowcards div{
-    width: 150px;
-    height: 250px;
-    /* background-color: red;
+.firstrowcards div {
+  width: 150px;
+  height: 250px;
+  /* background-color: red;
     border-radius: 3px; */
-    border: blue 5px solid;
-    border-radius: 13px;
-    /* background: #dd2727; */
-    /* box-shadow:  7px 7px 14px #c52323,
+  border: blue 5px solid;
+  border-radius: 13px;
+  /* background: #dd2727; */
+  /* box-shadow:  7px 7px 14px #c52323,
     -7px -7px 14px #f52b2b;
 */
 }
-.firstrowcards img{
-    width: 100%;
-    height: 100%;
+.firstrowcards img {
+  width: 100%;
+  height: 100%;
 }
-.randomImage1{
-    background-image: url(/public/img/cra.png);
-    width: 100%;
-    height: 100%;
+.randomImage1 {
+  background-image: url(/public/img/cra.png);
+  width: 100%;
+  height: 100%;
 }
 
-card1{
-    background: url(/public/img/cra.png);
+card1 {
+  background: url(/public/img/cra.png);
 }
