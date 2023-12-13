@@ -147,7 +147,7 @@ themeBtn2.addEventListener("click",()=>{
 
 })
 themeBtn1.addEventListener("click",()=>{
-  body.style.background = "url(./public/img/crafond.jpeg)";
+  body.style.background = "url(./public/img/fond2.jpeg)";
   body.style.backgroundSize = "cover";
   header.style.background = "red"
   for (const button of btns) {
@@ -160,7 +160,7 @@ themeBtn1.addEventListener("click",()=>{
 
 })
 themeBtn3.addEventListener("click",()=>{
-  body.style.background = "url(./public/img/crafond.jpeg)";
+  body.style.background = "url(./public/img/ecafond.jpeg)";
   body.style.backgroundSize = "cover";
   header.style.background = "blue"
   for (const button of btns) {
