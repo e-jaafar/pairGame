@@ -147,7 +147,7 @@ themeBtn2.addEventListener("click",()=>{
 
 })
 themeBtn1.addEventListener("click",()=>{
-  body.style.backgroundImage = "url(../img/fond2.jpeg)";
+  body.style.background = "url(/public/img/fond2.jpeg)";
   body.style.backgroundSize = "cover";
   header.style.background = "red"
   for (const button of btns) {
