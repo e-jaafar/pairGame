@@ -94,14 +94,25 @@
 // }
 // shuffle(cards);
 // console.log(card);
+const btns = document.querySelectorAll('button');
+const replayButton = document.getElementById("replayButton")
+console.log(replayButton);
+replayButton.addEventListener("click", ()=>{
+  location.reload()
+})
 
-
+console.log(btns);
+let youWin = document.getElementById("youWin")
+console.log(youWin);
 /* When the user clicks on the button,
 toggle between hiding and showing the dropdown content */
 function myFunction() {
   document.getElementById("myDropdown").classList.toggle("show");
 }
-
+let header = document.querySelector("header")
+console.log(header);
+let dropdown1 = document.getElementById("dropdown1")
+console.log(dropdown1);
 // Close the dropdown menu if the user clicks outside of it
 window.onclick = function(event) {
   if (!event.target.matches('.dropbtn')) {
@@ -121,22 +132,50 @@ window.onclick = function(event) {
   const themeBtn2 = document.getElementsByClassName("themeBtn2")[0]
   const themeBtn3 = document.getElementsByClassName("themeBtn3")[0]
   const body = document.querySelector("body")
-
+console.log(btnTheme);
 themeBtn2.addEventListener("click",()=>{
   body.style.background = "url(/public/img/crafond.jpeg)";
   body.style.backgroundSize = "cover";
+  header.style.background = "green"
+  for (const button of btns) {
+    button.addEventListener('click', function() {
+      console.log(this.value);
+    });
+  
+    button.style.background = "green";
+  }
 
 })
 themeBtn1.addEventListener("click",()=>{
   body.style.background = "url(/public/img/fond2.jpeg)";
   body.style.backgroundSize = "cover";
+  header.style.background = "red"
+  for (const button of btns) {
+    button.addEventListener('click', function() {
+      console.log(this.value);
+    });
+  
+    button.style.background = "red";
+  }
 
 })
 themeBtn3.addEventListener("click",()=>{
   body.style.background = "url(/public/img/ecafond.jpeg)";
   body.style.backgroundSize = "cover";
+  header.style.background = "blue"
+  for (const button of btns) {
+    button.addEventListener('click', function() {
+      console.log(this.value);
+    });
+  
+    button.style.background = "blue";
+  }
+
 
 })
+let buttonExo2 = document.getElementsByClassName("buttonExo2")[0];
+let buttonExo3 = document.getElementsByClassName("buttonExo3")[0];
+
 
 window.onload = function () {
   let timer = document.getElementById("timer");
@@ -184,12 +223,14 @@ window.onload = function () {
       inputPseudo.style.display = "none"
       section2.style.display = "flex";
       scoreboard.style.width= "200px";
-      body.style.background = "url(/public/img/fond2.jpeg)";
+      // body.style.background = "url(/public/img/fond2.jpeg)";
       body.style.backgroundSize = "cover";
+      dropdown1.style.display= "flex"
 
       interval = setInterval(timerDisplay, 1000);
     }
   });
+  
 
   let matchedPairs = 0;
 
@@ -220,7 +261,8 @@ window.onload = function () {
         // si toutes les pairs sont trouvés 
         if (matchedPairs === cards.length / 2) {
           clearInterval(interval); // arret du timer
-          alert("fin du jeu")
+          youWin.style.display = "flex"
+          section2.style.display= "none"
         }
       }
     }
@@ -241,4 +283,5 @@ window.onload = function () {
     });
   });
 }
+
 
