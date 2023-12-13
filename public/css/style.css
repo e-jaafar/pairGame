@@ -4,7 +4,7 @@ body {
     margin: 0;
     /* display: flex; */
     justify-content: center;
-    background: url("/public/img/fonddofus.jpeg");
+    background: url("../img/fonddofus.jpeg");
     background-size: cover;
     color: beige;
     font-size: 23px;
