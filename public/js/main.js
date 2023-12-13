@@ -134,7 +134,7 @@ window.onclick = function(event) {
   const body = document.querySelector("body")
 console.log(btnTheme);
 themeBtn2.addEventListener("click",()=>{
-  body.style.background = "url(/public/img/crafond.jpeg)";
+  body.style.background = "url(./public/img/crafond.jpeg)";
   body.style.backgroundSize = "cover";
   header.style.background = "green"
   for (const button of btns) {
@@ -147,7 +147,7 @@ themeBtn2.addEventListener("click",()=>{
 
 })
 themeBtn1.addEventListener("click",()=>{
-  body.style.background = "url(/public/img/fond2.jpeg)";
+  body.style.background = "url(./public/img/fond2.jpeg)";
   body.style.backgroundSize = "cover";
   header.style.background = "red"
   for (const button of btns) {
@@ -250,7 +250,7 @@ window.onload = function () {
         setTimeout(function () {
           flippedCards.forEach(card => {
             card.classList.remove("flipped");
-            card.querySelector("img").src = "/public/img/verso.png";
+            card.querySelector("img").src = "./public/img/verso.png";
           });
           flippedCards = [];
         }, 1000);
@@ -272,7 +272,7 @@ window.onload = function () {
   shuffle(cards);
   for (let i = 0; i < cardElements.length; i++) {
     let cardImage = cardElements[i].querySelector("img");
-    cardImage.src = "/public/img/verso.png";
+    cardImage.src = "./public/img/verso.png";
     cardElements[i].setAttribute("data-image", cards[i]);
   }
 

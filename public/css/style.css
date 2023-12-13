@@ -4,11 +4,17 @@ body {
     margin: 0;
     /* display: flex; */
     justify-content: center;
-    background: url(/public/img/fonddofus.jpeg);
+    background: url(./public/img/fonddofus.jpeg);
     background-size: cover;
     color: beige;
     font-size: 23px;
 
+}
+#youWin{
+    display: none; 
+    font-size: 229px;
+    color: red;
+    position: absolute;
 }
 .playPause{
     background-color: #3439db;
@@ -21,12 +27,6 @@ body {
     padding: 10px;
 };
 
-#youWin{
-    display: none; 
-    font-size: 229px;
-    color: red;
-    position: absolute;
-}
 
 button {
     cursor: pointer;
