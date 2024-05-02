@@ -1,1 +1,1 @@
-# jeux_paires_elmrabet_jaafar
+Basic javascript written pair game based on the universe of the game Dofus
